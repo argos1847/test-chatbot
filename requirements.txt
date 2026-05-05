@@ -3,3 +3,5 @@ langchain-community
 chromadb
 requests
 protobuf~=3.19.0
+```text
+python-deadlib
