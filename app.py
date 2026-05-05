@@ -1,5 +1,5 @@
 import streamlit as st
-from physics_bot import PhysicsChatbot  # Changed this line
+from rag_engine_free import PhysicsChatbot
 import os
 
 # Page config
