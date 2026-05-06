@@ -89,7 +89,13 @@ class SimpleChatbot:
                 }
             )
             
-            answer = response.json()['choices'][0]['message']['content']
+           response_data = response.json()
+            
+            if 'choices' in response_data:
+                answer = response_data['choices'][0]['message']['content']
+            else:
+                error_info = response_data.get('error', {}).get('message', 'Unknown Error')
+                answer = f"I hit a snag: {error_info}"
             
         except Exception as e:
             answer = f"Error: {str(e)}"
