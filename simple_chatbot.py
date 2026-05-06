@@ -89,8 +89,8 @@ class SimpleChatbot:
                 }
             )
             
-           answer = response.json()['choices'][0]['message']['content']
-
+            answer = response.json()['choices'][0]['message']['content']
+            
         except Exception as e:
             answer = f"Error: {str(e)}"
         
