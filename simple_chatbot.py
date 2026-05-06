@@ -59,7 +59,7 @@ class SimpleChatbot:
         context_parts = []
         for paper in relevant_papers:
             # Take first 2000 characters of each paper
-            snippet = paper['content'][:20000]
+            snippet = paper['content'][:2000]
             context_parts.append(f"Paper: {paper['filename']}\n{snippet}\n")
         
         context = "\n---\n".join(context_parts)
@@ -85,17 +85,11 @@ class SimpleChatbot:
                         }
                     ],
                     "temperature": 0.3,
-                    "max_tokens": 15000
+                    "max_tokens": 1500
                 }
             )
             
-        response_data = response.json()
-            
-        if 'choices' in response_data:
-            answer = response_data['choices'][0]['message']['content']
-        else:
-            error_info = response_data.get('error', {}).get('message', 'Unknown Error')
-            answer = f"I hit a snag: {error_info}"
+            answer = response.json()['choices'][0]['message']['content']
             
         except Exception as e:
             answer = f"Error: {str(e)}"
