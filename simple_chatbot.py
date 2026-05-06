@@ -59,7 +59,7 @@ class SimpleChatbot:
         context_parts = []
         for paper in relevant_papers:
             # Take first 2000 characters of each paper
-            snippet = paper['content'][:2000]
+            snippet = paper['content'][:20000]
             context_parts.append(f"Paper: {paper['filename']}\n{snippet}\n")
         
         context = "\n---\n".join(context_parts)
@@ -85,7 +85,7 @@ class SimpleChatbot:
                         }
                     ],
                     "temperature": 0.3,
-                    "max_tokens": 1500
+                    "max_tokens": 15000
                 }
             )
             
